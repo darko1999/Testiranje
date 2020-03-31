@@ -1,50 +1,56 @@
 [
-    {
-      "id": 1,  
-      "name": "Catherine Missal",
-      "rating": 4875,
-      "image_path": "/g3fsRgEoMxaqPayIMtGDWERqJ6A.jpg",
-      "alternative_name": null,
-      "objectID": "551486300"
-    },
-    {
-      "id": 2,  
-      "name": "Monica Bellucci",
-      "rating": 3956,
-      "image_path": "/z3sLuRKP7hQVrvSTsqdLjGSldwG.jpg",
-      "alternative_name": "Monica Anna Maria Bellucci",
-      "objectID": "551486310"
-    },
-    {
-      "id": 3,
-      "name": "Michael Doven",
-      "rating": 2647,
-      "image_path": "/fkHxoBAvAkqHxzoP1ukcbPnaaUi.jpg",
-      "alternative_name": null,
-      "objectID": "551486320"
-    },
-    {
-      "id": 4,
-      "name": "Jasmine Reate",
-      "rating": 2378,
-      "image_path": "/qgI4agu15xBlnWkZEVpZhGFsV4Y.jpg",
-      "alternative_name": "J.L. Reate",
-      "objectID": "551486330"
-    },
-    {
-      "id": 5,
-      "name": "Tom Cruise",
-      "rating": 2237,
-      "image_path": "/3oWEuo0e8Nx8JvkqYCDec2iMY6K.jpg",
-      "alternative_name": null,
-      "objectID": "551486340"
-    },
-    {
-      "id": 6,
-      "name": "Scarlett Johansson",
-      "rating": 2128,
-      "image_path": "/f3c1rwcOoeU0v6Ak5loUvMyifR0.jpg",
-      "alternative_name": "Scarlett Johanssen",
-      "objectID": "551486350"
-    }
+  {
+    "id": 1,  
+    "name": "Catherine Missal",
+    "rating": 4875,
+    "image_path": "/g3fsRgEoMxaqPayIMtGDWERqJ6A.jpg",
+    "alternative_name": null,
+    "objectID": "551486300",
+    "age":20
+  },
+  {
+    "id": 2,  
+    "name": "Monica Bellucci",
+    "rating": 3956,
+    "image_path": "/z3sLuRKP7hQVrvSTsqdLjGSldwG.jpg",
+    "alternative_name": "Monica Anna Maria Bellucci",
+    "objectID": "551486310",
+    "age":55
+  },
+  {
+    "id": 3,
+    "name": "Michael Doven",
+    "rating": 2647,
+    "image_path": "/fkHxoBAvAkqHxzoP1ukcbPnaaUi.jpg",
+    "alternative_name": null,
+    "objectID": "551486320",
+    "age":61
+  },
+  {
+    "id": 4,
+    "name": "Jasmine Reate",
+    "rating": 2378,
+    "image_path": "/qgI4agu15xBlnWkZEVpZhGFsV4Y.jpg",
+    "alternative_name": "J.L. Reate",
+    "objectID": "551486330",
+    "age":40
+  },
+  {
+    "id": 5,
+    "name": "Tom Cruise",
+    "rating": 2237,
+    "image_path": "/3oWEuo0e8Nx8JvkqYCDec2iMY6K.jpg",
+    "alternative_name": null,
+    "objectID": "551486340",
+    "age":57
+  },
+  {
+    "id": 6,
+    "name": "Scarlett Johansson",
+    "rating": 2128,
+    "image_path": "/f3c1rwcOoeU0v6Ak5loUvMyifR0.jpg",
+    "alternative_name": "Scarlett Johanssen",
+    "objectID": "551486350",
+    "age":35
+  }
 ]

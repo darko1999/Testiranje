@@ -1,6 +1,24 @@
-{
-    "shows":
-    [
-        "12 Monkeys","WWE Monday Night RAW","WWE NXT","WWE Raw is War","WWE Smackdown","X Company","You're the Worst","Young &amp; Hungry","Younger","Your Family or Mine","Yukon Men","Z Nation","Zoo"
-        ]
-}
+[
+    {
+        "id": 1,
+        "title": "The Last Kingdom",
+        "episodes": "28",
+        "plot":"Based on Bernard Cornwell's novels, series fullows the life of Uthred of Bebbanburg"
+        
+      },
+    {
+        "id": 2,
+        "title": "Game of Thrones",
+        "episodes": "64",
+        "plot":"Epic battle for Iron Throne in Fantasy World"
+        
+      },
+    {
+      "id": 3,
+      "title": "Arrow",
+      "episodes": "70",
+      "plot":"Playboy returns after five years at desern island and becomes masked avenger called Arrow"
+      
+    }
+  ]
+  

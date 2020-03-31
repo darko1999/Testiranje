@@ -21,8 +21,9 @@ const vratiOpisFilma = async (req, res, next) => {
   if(film.length===0){
     res.status(200).send({err:"Doslo je do greske"})
   }else{
-    const desc=film[0].plot
-  res.status(200).send({desc})
+    const plot={"Film":film[0].title,
+                "Opis":film[0].plot}
+  res.status(200).send({plot})
   }
 }
 
