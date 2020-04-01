@@ -5,35 +5,32 @@ const vratiSveSerije = async (req, res, next) => {
 }
 
 const vratiSerijuPoNazivu = async (req, res, next) => {
-  const { naziv } = req.params
-  const serija = sveSerije.filter(serija => new RegExp(naziv, 'i').exec(serija.title))
-  if (serija.length===0){
-    res.status(200).send({err:"Doslo je do greske"})
+  const serija = sveSerije.find(serija =>serija.id===parseInt(req.params.id))
+  if (!serija){
+    res.status(404).send({err:"Serija ne postoji"})
   }else{
     res.status(200).send({serija})
   }
 }
 
 const vratiOpisSerije = async (req, res, next) => {
-  const { naziv } = req.params
-  const serija = sveSerije.filter(serija => new RegExp(naziv, 'i').exec(serija.title))
-  if (serija.length===0){
-    res.status(200).send({err:"Doslo je do greske"})
+  const serija = sveSerije.find(serija =>serija.id===parseInt(req.params.id))
+  if (!serija){
+    res.status(404).send({err:"Serija ne postoji"})
   }else{
-    const plot={"Ime":serija[0].title,
-                "Opis":serija[0].plot}
+    const plot={"Ime":serija.title,
+                "Opis":serija.plot}
     res.status(200).send({plot})
   }
 }
 
 const vratiEpizodeSerije = async (req, res, next) => {
-  const { naziv } = req.params
-  const serija = sveSerije.filter(serija => new RegExp(naziv, 'i').exec(serija.title))
-  if (serija.length===0){
-    res.status(200).send({err:"Doslo je do greske"})
+  const serija = sveSerije.find(serija =>serija.id===parseInt(req.params.id))
+  if (!serija){
+    res.status(404).send({err:"Serija ne postoji"})
   }else{
-    const epizode={"Ime":serija[0].title,
-                  "Epizode":serija[0].episodes}
+    const epizode={"Ime":serija.title,
+                  "Epizode":serija.episodes}
     res.status(200).send({epizode})
   }
 }

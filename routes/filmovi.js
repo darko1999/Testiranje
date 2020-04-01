@@ -6,7 +6,7 @@ const Filmovi = require('../controllers/filmovi')
 const { vratiSveFilmove, vratiFilmovePoNazivu, vratiOpisFilma } = Filmovi
 
 router.get('/', vratiSveFilmove)
-router.get('/:naziv', vratiFilmovePoNazivu)
-router.get('/:naziv/opis', vratiOpisFilma)
+router.get('/:id', vratiFilmovePoNazivu)
+router.get('/:id/opis', vratiOpisFilma)
 
 module.exports = router

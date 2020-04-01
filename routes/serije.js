@@ -11,8 +11,8 @@ const {
 } = Serije
 
 router.get('/', vratiSveSerije)
-router.get('/:naziv', vratiSerijuPoNazivu)
-router.get('/:naziv/opis', vratiOpisSerije)
-router.get('/:naziv/epizode', vratiEpizodeSerije)
+router.get('/:id', vratiSerijuPoNazivu)
+router.get('/:id/opis', vratiOpisSerije)
+router.get('/:id/epizode', vratiEpizodeSerije)
 
 module.exports = router

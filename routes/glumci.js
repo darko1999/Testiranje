@@ -11,8 +11,8 @@ const {
 } = Glumci
 
 router.get('/', vratiSveGlumce)
-router.get('/:imePrezime', vratiGlumcaPoImenuIPrezimenu)
-router.get('/:imePrezime/godine', vratiGodineGlumca)
-router.get('/:imePrezime/rejting', vratiRejtingGlumca)
+router.get('/:id', vratiGlumcaPoImenuIPrezimenu)
+router.get('/:id/godine', vratiGodineGlumca)
+router.get('/:id/rejting', vratiRejtingGlumca)
 
 module.exports = router

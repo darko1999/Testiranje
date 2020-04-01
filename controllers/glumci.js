@@ -6,10 +6,9 @@ const vratiSveGlumce = async (req, res, next) => {
 }
 
 const vratiGlumcaPoImenuIPrezimenu = async (req, res, next) => {
-  const { imePrezime } = req.params
-  const glumac = sviGlumci.filter(glumac => new RegExp(imePrezime, 'i').exec(glumac.name))
-  if (glumac.length===0){
-    res.status(200).send({err:"Doslo je do greske"})
+  const glumac = sviGlumci.find(glumac=>glumac.id===parseInt(req.params.id))
+  if (!glumac){
+    res.status(404).send({err:"Nepoznat glumac"})
   }else{
     res.status(200).send({glumac})
   }
@@ -17,25 +16,23 @@ const vratiGlumcaPoImenuIPrezimenu = async (req, res, next) => {
 }
 
 const vratiGodineGlumca = async (req, res, next) => {
-  const { imePrezime } = req.params
-  const glumac = sviGlumci.filter(glumac => new RegExp(imePrezime, 'i').exec(glumac.name))
-  if (glumac.length===0){
-    res.status(200).send({err:"Doslo je do greske"})
+const glumac = sviGlumci.find(glumac=>glumac.id===parseInt(req.params.id))  
+if (!glumac){
+    res.status(404).send({err:"Nepoznat glumac"})
   }else{
-    const godine={"Ime":glumac[0].name,
-                  "Godine":glumac[0].age}
+    const godine={"Ime":glumac.name,
+                  "Godine":glumac.age}
     res.status(200).send({godine})
   }
 }
 
 const vratiRejtingGlumca = async (req, res, next) => {
-  const { imePrezime } = req.params
-  const glumac = sviGlumci.filter(glumac => new RegExp(imePrezime, 'i').exec(glumac.name))
-  if (glumac.length===0){
-    res.status(200).send({err:"Doslo je do greske"})
+  const glumac = sviGlumci.find(glumac=>glumac.id===parseInt(req.params.id))
+    if (!glumac){
+    res.status(404).send({err:"Nepoznat glumac"})
   }else{
-    const rejting={"Ime":glumac[0].name,
-                  "Godine":glumac[0].rating}
+    const rejting={"Ime":glumac.name,
+                  "Rejting":glumac.rating}
     res.status(200).send({rejting})
   }
 }
