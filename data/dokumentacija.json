@@ -1,0 +1,21 @@
+{
+    "Filmovi": {
+      "GETfilmove": "localhost:4000/api/v1/filmovi",
+      "GETfilm[id]": "localhost:4000/api/v1/filmovi/:id",
+      "GETopisFilma": "localhost:4000/api/v1/filmovi/:id/opis"
+    },
+    "Serije": {
+        "GETserije": "localhost:4000/api/v1/serije",
+        "GETserije[id]": "localhost:4000/api/v1/serije/:id",
+        "GETopisSerije": "localhost:4000/api/v1/serije/:id/opis",
+        "GETepizodeSerije": "localhost:4000/api/v1/serije/:id/epizode"
+    },
+    "Glumci":{
+        "GETglumce": "localhost:4000/api/v1/glumci",
+        "GETglumce[id]": "localhost:4000/api/v1/glumci/:id",
+        "GETstarostGlumca": "localhost:4000/api/v1/glumci/:id/godine",
+        "GETrejtingGlumca": "localhost:4000/api/v1/glumci/:id/rejting"
+      
+    }
+}
+
