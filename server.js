@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+app.use(express.json())
+
+
 
 const dokumentacija=require('./routes/dokumentacija')
 const filmovi = require('./routes/filmovi')
