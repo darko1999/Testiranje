@@ -1,6 +1,6 @@
 const sviFilmovi = require("../data/filmovi.json");
 const Joi = require("joi");
-const fs = require("fs");
+const Film = require("../models/film");
 
 const sortFilmove = (a, b, value) => {
   if (a[value] < b[value]) {
@@ -32,8 +32,9 @@ const vratiSveFilmove = async (req, res, next) => {
     res.status(200).send({ film });
   }
   if (!req.query.sort && !req.query.order) {
+    const Filmovi = await Film.find({});
     res.status(200);
-    res.send({ filmovi: sviFilmovi });
+    res.send({ filmovi: Filmovi });
   }
 };
 const vratiFilmovePoNazivu = async (req, res, next) => {
@@ -55,27 +56,39 @@ const vratiOpisFilma = async (req, res, next) => {
   }
 };
 const dodajFilm = async (req, res, next) => {
-  const schema = {
+  const schema = Joi.object({
     title: Joi.string().required(),
     plot: Joi.string().required(),
     year: Joi.number().required(),
-    raiting: Joi.number().required(),
-  };
-  const result = Joi.validate(req.body, schema);
+    rating: Joi.number().required(),
+  });
+  console.log(req.body);
+  const result = schema.validate(req.body);
+  console.log(result);
   if (result.error) {
     res.status(400).send(result.error.details[0].message);
     return;
   }
   const film = {
-    id: sviFilmovi.length + 1,
     title: req.body.title,
     plot: req.body.plot,
-    raiting: req.body.raiting,
+    rating: req.body.rating,
     year: req.body.year,
   };
-  sviFilmovi.push(film);
-
-  res.send(film);
+  const movie = new Film(film);
+  const save = await movie.save();
+  res.status(201).send({ message: "Film je sacuvan", film: save });
+};
+const izbrisiFilm = async (req, res, next) => {
+  const { id } = req.params;
+  await Film.findByIdAndDelete(id);
+  res.status(200).send({ msg: "Film je izbrisan" });
+};
+const azurirajFilm = async (req, res, next) => {
+  const { id } = req.params;
+  const update = req.body;
+  await Film.findByIdAndUpdate(id, update);
+  res.status(200).send({ msg: "Film je azuriran" });
 };
 
 module.exports = {
@@ -83,4 +96,6 @@ module.exports = {
   vratiFilmovePoNazivu,
   vratiOpisFilma,
   dodajFilm,
+  izbrisiFilm,
+  azurirajFilm,
 };

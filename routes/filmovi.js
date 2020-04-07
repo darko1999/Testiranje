@@ -8,12 +8,16 @@ const {
   vratiFilmovePoNazivu,
   vratiOpisFilma,
   dodajFilm,
+  izbrisiFilm,
+  azurirajFilm,
 } = Filmovi;
 
-router.get("/", vratiSveFilmove);
-router.get("/:id", vratiFilmovePoNazivu);
+router.route("/").get(vratiSveFilmove).post(dodajFilm);
+router
+  .route("/:id")
+  .get(vratiFilmovePoNazivu)
+  .delete(izbrisiFilm)
+  .patch(azurirajFilm);
 router.get("/:id/opis", vratiOpisFilma);
-
-router.post("/", dodajFilm);
 
 module.exports = router;
