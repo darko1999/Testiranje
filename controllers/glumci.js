@@ -27,22 +27,9 @@ const vratiRejtingGlumca = async (req, res, next) => {
   res.status(200).send({ rating });
 };
 const dodajGlumca = async (req, res, next) => {
-  const schema = Joi.object({
-    name: Joi.string().required(),
-    age: Joi.number().required(),
-    rating: Joi.number().required(),
-    movies: Joi.string().required(),
-  });
-  console.log(req.body);
-  const result = schema.validate(req.body);
-  console.log(result);
-  if (result.error) {
-    res.status(400).send(result.error.details[0].message);
-    return;
-  }
   const glumac = {
     name: req.body.name,
-    age: req.body.plot,
+    age: req.body.age,
     rating: req.body.rating,
     movies: req.body.movies,
   };

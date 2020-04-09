@@ -52,19 +52,6 @@ const vratiOpisFilma = async (req, res, next) => {
   res.status(200).send({ plot });
 };
 const dodajFilm = async (req, res, next) => {
-  const schema = Joi.object({
-    title: Joi.string().required(),
-    plot: Joi.string().required(),
-    year: Joi.number().required(),
-    rating: Joi.number().required(),
-  });
-  console.log(req.body);
-  const result = schema.validate(req.body);
-  console.log(result);
-  if (result.error) {
-    res.status(400).send(result.error.details[0].message);
-    return;
-  }
   const film = {
     title: req.body.title,
     plot: req.body.plot,

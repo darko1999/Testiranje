@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
+const { validacija } = require("../middlewares/validation/validation");
+const {
+  dodajGlumcaSchema,
+} = require("../middlewares/validation/schemas/glumci");
+
 const Glumci = require("../controllers/glumci");
 
 const {
@@ -13,7 +18,10 @@ const {
   azurirajGlumca,
 } = Glumci;
 
-router.route("/").get(vratiSveGlumce).post(dodajGlumca);
+router
+  .route("/")
+  .get(vratiSveGlumce)
+  .post(validacija(dodajGlumcaSchema), dodajGlumca);
 router
   .route("/:id")
   .get(vratiGlumcaPoImenuIPrezimenu)
