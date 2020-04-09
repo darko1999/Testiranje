@@ -14,22 +14,24 @@ const sortFilmove = (a, b, value) => {
 
 const vratiSveFilmove = async (req, res, next) => {
   if (req.query.sort === "godina" && req.query.order === "asc") {
-    const film = sviFilmovi.sort((a, b) => sortFilmove(a, b, "year"));
-    res.status(200).send({ film });
+    const film = await Film.find({});
+    const filmovi = film.sort((a, b) => sortFilmove(a, b, "year"));
+    res.status(200).send({ filmovi });
   }
   if (req.query.sort === "godina" && req.query.order === "desc") {
-    const film = sviFilmovi.sort((a, b) => sortFilmove(a, b, "year")).reverse();
-    res.status(200).send({ film });
+    const film = await Film.find({});
+    const filmovi = film.sort((a, b) => sortFilmove(a, b, "year")).reverse();
+    res.status(200).send({ filmovi });
   }
   if (req.query.sort === "rejting" && req.query.order === "desc") {
-    const film = sviFilmovi.sort((a, b) => sortFilmove(a, b, "raiting"));
-    res.status(200).send({ film });
+    const film = await Film.find({});
+    const filmovi = film.sort((a, b) => sortFilmove(a, b, "rating"));
+    res.status(200).send({ filmovi });
   }
   if (req.query.sort === "rejting" && req.query.order === "asc") {
-    const film = sviFilmovi
-      .sort((a, b) => sortFilmove(a, b, "raiting"))
-      .reverse();
-    res.status(200).send({ film });
+    const film = await Film.find({});
+    const filmovi = film.sort((a, b) => sortFilmove(a, b, "rating")).reverse();
+    res.status(200).send({ filmovi });
   }
   if (!req.query.sort && !req.query.order) {
     const Filmovi = await Film.find({});
@@ -38,22 +40,16 @@ const vratiSveFilmove = async (req, res, next) => {
   }
 };
 const vratiFilmovePoNazivu = async (req, res, next) => {
-  const film = sviFilmovi.find((film) => film.id === parseInt(req.params.id));
-  if (!film) {
-    res.status(404).send({ err: "Film ne postoji" });
-  } else {
-    res.status(200).send({ film });
-  }
+  const { id } = req.params;
+  const film = await Film.findById(id);
+  res.status(200).send({ film });
 };
 
 const vratiOpisFilma = async (req, res, next) => {
-  const film = sviFilmovi.find((film) => film.id === parseInt(req.params.id));
-  if (!film) {
-    res.status(404).send({ err: "Film ne postoji" });
-  } else {
-    const plot = { Film: film.title, Opis: film.plot };
-    res.status(200).send({ plot });
-  }
+  const { id } = req.params;
+  const film = await Film.findById(id);
+  const plot = film.plot;
+  res.status(200).send({ plot });
 };
 const dodajFilm = async (req, res, next) => {
   const schema = Joi.object({

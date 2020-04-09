@@ -1,18 +1,25 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const Glumci = require('../controllers/glumci')
+const Glumci = require("../controllers/glumci");
 
 const {
   vratiSveGlumce,
   vratiGlumcaPoImenuIPrezimenu,
   vratiGodineGlumca,
-  vratiRejtingGlumca
-} = Glumci
+  vratiRejtingGlumca,
+  dodajGlumca,
+  izbrisiGlumca,
+  azurirajGlumca,
+} = Glumci;
 
-router.get('/', vratiSveGlumce)
-router.get('/:id', vratiGlumcaPoImenuIPrezimenu)
-router.get('/:id/godine', vratiGodineGlumca)
-router.get('/:id/rejting', vratiRejtingGlumca)
+router.route("/").get(vratiSveGlumce).post(dodajGlumca);
+router
+  .route("/:id")
+  .get(vratiGlumcaPoImenuIPrezimenu)
+  .patch(azurirajGlumca)
+  .delete(izbrisiGlumca);
+router.get("/:id/godine", vratiGodineGlumca);
+router.get("/:id/rejting", vratiRejtingGlumca);
 
-module.exports = router
+module.exports = router;
