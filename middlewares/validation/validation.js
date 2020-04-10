@@ -7,8 +7,7 @@ const validacija = (schema) => {
         value: error.details[0].message,
       };
       res.status(400).send({ error: defaultError });
-    }
-    next();
+    } else next();
   };
 };
 

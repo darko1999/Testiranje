@@ -4,6 +4,7 @@ const router = express.Router();
 const { validacija } = require("../middlewares/validation/validation");
 const {
   dodajGlumcaSchema,
+  izmeniGlumcaSchema,
 } = require("../middlewares/validation/schemas/glumci");
 
 const Glumci = require("../controllers/glumci");
@@ -25,8 +26,9 @@ router
 router
   .route("/:id")
   .get(vratiGlumcaPoImenuIPrezimenu)
-  .patch(azurirajGlumca)
-  .delete(izbrisiGlumca);
+  .patch(validacija(izmeniGlumcaSchema), azurirajGlumca)
+  .delete(izbrisiGlumca)
+  .put(validacija(dodajGlumcaSchema), azurirajGlumca);
 router.get("/:id/godine", vratiGodineGlumca);
 router.get("/:id/rejting", vratiRejtingGlumca);
 

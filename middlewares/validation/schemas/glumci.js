@@ -7,6 +7,11 @@ const dodajGlumcaSchema = Joi.object({
   movies: Joi.array().items(Joi.string()).required(),
 });
 
-const izmeniGlumcaSchema = {};
+const izmeniGlumcaSchema = Joi.object({
+  name: Joi.string(),
+  age: Joi.number(),
+  rating: Joi.number(),
+  movies: Joi.array().items(Joi.string()),
+});
 
 module.exports = { dodajGlumcaSchema, izmeniGlumcaSchema };

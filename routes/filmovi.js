@@ -15,7 +15,6 @@ const {
   dodajFilm,
   izbrisiFilm,
   azurirajFilm,
-  izmeniCeoFilm,
 } = Filmovi;
 
 router
